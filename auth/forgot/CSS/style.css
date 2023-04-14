@@ -1,0 +1,231 @@
+/* Regular 400 */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+:root{
+    --icon: rgba(52, 52, 52, 0.874);
+    --primary: #ff9800;
+    --secondary: #008a9a;
+    --secndrBrdr: rgba(0, 139, 154, 0.437);
+    --brdr: rgba(241, 241, 241, 0.736);
+    --shdw: rgba(233, 233, 233, 0.787);
+    --shdwBg: rgba(255, 255, 255, 0.576);
+    --error: rgb(255, 59, 59);
+    --errorBrdr: rgba(255, 77, 77, 0.936);
+    --authRegCl: #664bff;
+    --valid: #4caf50;
+}
+body{
+    user-select: none;
+}
+.mainforgetpage-section-wrap{
+    width: 100%;
+    height: 100vh;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contforgot-sec-wrap{
+    width: 500px;
+    height: max-content;
+    border: 1px solid var(--brdr);
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px var(--shdw);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.head-forgtsec-wrap{
+    width: 95%;
+    height: 13%;
+    border-bottom: 1px solid var(--brdr);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+.btm-forgtsec-wrap{
+    width: 95%;
+    height: 70%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.head-forgtsec-wrap h1{
+    margin-bottom: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: var(--secondary);
+}
+.head-forgtsec-wrap h1 i{
+    color: var(--icon);
+}
+.head-forgtsec-wrap p{
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 13px;
+    color: var(--icon);
+}
+
+/* all input wrapper section */
+.usr-email-wrap, .otp-email-wrap, .pwd-account-wrap{
+    width: 80%;
+    height: 65px;
+    padding: 8px;
+    border: 1px solid var(--brdr);
+    margin: 5px auto;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.otp-wrap-allinpt, .savepwd-wrap-allinpt, .checkMail-wrapp-allinpt{
+    width: 100%;
+}
+.otp-email-wrap{
+    justify-content: space-between;
+    padding: 8px 20px;
+}
+.email-icn-wrap, .userEmail-otp-icn-wrap, .pwd-icn-wrap{
+    color: var(--icon);
+}
+.email-cntnt, .useremail-otp-cntnt, .pwdUserAcc-cntnt{
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.useremail-otp-cntnt{
+    width: 60%;
+}
+.email-cntnt label, .useremail-otp-cntnt label, .pwdUserAcc-cntnt label{
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--secondary);
+    margin-left: 3px;
+}
+.pwd-account-wrap .pwdUserAcc-cntnt form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.pwd-account-wrap .pwdUserAcc-cntnt form i{
+    margin-left: 10px;
+    color: var(--icon);
+}
+.email-cntnt input, .useremail-otp-cntnt input, .pwdUserAcc-cntnt form input{
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 11.5px;
+    border: none;
+    outline: none;
+    font-family: 'Nunito', sans-serif;
+    color: var(--icon);
+    font-weight: bold;
+    letter-spacing: 1px;
+    background-color: rgba(235, 235, 235, 0.137);
+}
+#resentOTPLabel{
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+    width: 80%;
+    margin: 10px auto;
+    color: var(--secondary);
+}
+#resentOTPLabel span{
+    color: var(--icon);
+}
+/* verification email for forgot password */
+.checkMail-btn-vldtmsg, .quickuse-linkforgt, .savepwd-btn-vldtmsg{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px auto;
+    /* border: 1px solid black; */
+    padding: 5px 0;
+}
+.checkMail-btn-vldtmsg button, .savepwd-btn-vldtmsg button, .verfy-otp-btn{
+    background-color: white;
+    padding: 10px 25px;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px var(--brdr);
+    border: 1px solid var(--brdr);
+    letter-spacing: 1.2px;
+    color: var(--secondary);
+    cursor: pointer;
+    padding: 10px 15px;
+}
+.verfy-otp-btn{
+    padding: 8px;
+    font-size: 12px;
+}
+.checkMail-btn-vldtmsg button:hover, .savepwd-btn-vldtmsg button:hover, .verfy-otp-btn:hover{
+    box-shadow:inset 2px 2px 3px var(--brdr);
+}
+.checkMail-btn-vldtmsg button i, .savepwd-btn-vldtmsg button i{
+    color: var(--icon);
+    margin-right: 5px;
+}
+.checkMail-btn-vldtmsg p, .savepwd-btn-vldtmsg p{
+    width: 60%;
+    margin-left: 10px;
+    color: var(--error);
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+.quickuse-linkforgt > a{
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--secondary);
+}
+.otp-verification-msg-label{
+    margin: 10px auto;
+    width: 80%;
+    color: var(--error);
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.hide-opacity-wrapsec{
+    user-select: none;
+    position: relative;
+    opacity: 0.5;
+}
+.hide-opacity-wrapsec::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.827);
+    background-image: url(../TutorsHub.png);
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 50%;
+}
+.email-cntnt .focus-label, .otp-email-wrap .focus-label, .pwdUserAcc-cntnt .focus-label{
+    color: var(--error);
+}

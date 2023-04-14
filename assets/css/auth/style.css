@@ -1,0 +1,963 @@
+/* Regular 400 */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+:root{
+    --icon: rgba(52, 52, 52, 0.874);
+    --primary: #ff9800;
+    --secondary: #008a9a;
+    --secndrBrdr: rgba(0, 139, 154, 0.437);
+    --brdr: rgba(241, 241, 241, 0.736);
+    --shdw: rgba(233, 233, 233, 0.787);
+    --shdwBg: rgba(255, 255, 255, 0.576);
+    --error: rgb(255, 59, 59);
+    --errorBrdr: rgba(255, 77, 77, 0.936);
+    --authRegCl: #664bff;
+    --valid: #4caf50;
+}
+body{
+    user-select: none;
+}
+.auth-page-wrap{
+    width: 100vw;
+    height: 100vh;
+    background-color: #f9f9f94a;
+    /* background-image: url("../ASSET/auth_bg.webp"); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.auth-page-wrap .abstract-glass{
+    position: absolute;
+    width: 220px;
+    height: 100px;
+    animation-duration: 2.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+@keyframes scaleAbstract {
+    from{
+        transform: scale(1);
+    }to{
+        transform: scale(1.05) translate(-15px);
+    }
+}
+@keyframes scaleAbstractScale {
+    from{
+        transform: rotate(270deg) scale(1);
+    }to{
+        transform: rotate(270deg) scale(1.05) translateY(25px);
+    }
+}
+.abstract-left{
+    bottom: 12%;
+    left: 0%;
+    transform: rotate(270deg);
+    animation-name: scaleAbstractScale;
+}
+.abstract-right{
+    top: -3%;
+    right: 5%;
+    animation-name: scaleAbstract;
+}
+
+/* Authentication Login Wrapper */
+.auth-sec-wrap{
+    width: 75vw;
+    height: 85vh;
+    padding: 60px 0;
+    background: var(--shdwBg);
+    box-shadow: 0 0 25px 0 rgba(223, 223, 223, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid var(--brdr);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    display: none;
+}
+.show-auth-sec-wrap{
+    display: flex;
+    animation-name: slow-visible;
+    animation-timing-function: ease;
+    animation-duration: 2s;
+}
+@keyframes slow-visible {
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
+}
+.auth-sec-wrap > div, .authreg-sec-wrap > div{
+    height: 100%;
+    padding: 15px;
+    /* border: 1px solid black; */
+}
+
+/* Authentication Left */
+.left-auth-wrap, .authreg-sec-wrap .left-authreg-wrap{
+    border-right: 1px solid var(--brdr);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.cnt-word-wrap div i{
+    color: var(--icon);
+    margin: 0 10px;
+}
+.cnt-word-wrap div{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    font-weight:bolder;
+    margin: 10px 5px;
+    color: var(--secondary);
+}
+
+.cnt-word-wrap div p br{
+    display: none;
+}
+
+.cnt-word-wrap div p{
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    line-height: 22px;
+    color: var(--icon);
+    font-size: 15px;
+}
+
+.cnt-word-wrap div p span{
+    color: var(--primary);
+}
+
+.login-svg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-svg img{
+    width: 75%;
+}
+
+/* .auth-sec-wrap .left-auth-wrap img, .authreg-sec-wrap .left-authreg-wrap img{
+    width: 450px;
+    max-width: 100%;
+    height: auto;
+} */
+
+
+/* Authentication Head */
+.topleft-auth-head, .topleft-authreg-head{
+    /* border: 1px solid black; */
+    display: block;
+    width: 100%;
+}
+
+.authreg-sec-wrap .left-authreg-wrap .topleft-authreg-head div{
+    margin-bottom: 6px;
+    letter-spacing: 1.1px;
+    color: var(--authRegCl);
+    text-align: center;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+.authreg-sec-wrap .left-authreg-wrap .topleft-authreg-head p{
+    font-weight: bold;
+    letter-spacing: 1.1px;
+    line-height: 22px;
+    color: var(--icon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* Authentication Right */
+.auth-sec-wrap .rght-auth-wrap, .authreg-sec-wrap .rght-authreg-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+}
+.authreg-sec-wrap .rght-authreg-wrap{
+    padding: 60px 0;
+    justify-content: space-between;
+}
+
+
+/* authentication body */
+.auth-sec-wrap .rght-auth-wrap .rght-auth-body, .authreg-sec-wrap .rght-authreg-wrap .rght-authreg-body{
+    /* border: 1px solid black; */
+    width: 100%;
+    height: max-content;
+    text-align: center;
+    border-bottom: 1px solid var(--brdr);
+    padding: 15px;
+    position: relative;
+}
+.usr-email-wrap{
+    width: 80%;
+    height: 65px;
+    padding: 8px;
+    border: 1px solid var(--brdr);
+    margin: 5px auto;
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.email-icn-wrap, .email-icn-wrap{
+    width: 8%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--icon);
+}
+.email-cntnt{
+    text-align: left;
+    width: 85%;
+}
+.usr-email-wrap .email-cntnt label{
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--secondary);
+    margin-left: 3px;
+}
+.usr-email-wrap .email-cntnt .focus-email-lbl{
+    color: var(--error);
+}
+.usr-email-wrap .email-cntnt input{
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 12px;
+    border: none;
+    outline: none;
+    font-family: 'Nunito', sans-serif;
+    color: var(--icon);
+    font-weight: bold;
+    letter-spacing: 1px;
+    background-color: rgba(235, 235, 235, 0.137);
+}
+.usr-pwd-wrap{
+    width: 80%;
+    height: 65px;
+    padding: 8px;
+    border: 1px solid var(--brdr);
+    margin: 5px auto;
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+.focus-email-wrap, .focus-pwd-wrap{
+    border: 1px solid var(--errorBrdr);
+}
+.pwn-cntnt{
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+.pwd-icn-wrap{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--icon);
+}
+.pwn-cntnt label{
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--secondary);
+    margin-left: 3px;
+}
+.pwn-cntnt .focus-pwd-lbl{
+    color: var(--error);
+}
+.pwd-hid-shw{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 99%;
+    border-radius: 5px;
+    background-color: rgba(235, 235, 235, 0.137);
+}
+.pwd-hid-shw i{
+    margin-right: 10px;
+    color: var(--icon);
+}
+.pwn-cntnt .pwd-hid-shw input{
+    width: 90%;
+    padding: 5px;
+    margin-top: 2px;
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 12px;
+    border: none;
+    outline: none;
+    font-family: 'Nunito', sans-serif;
+    color: var(--icon);
+    font-weight: bold;
+    letter-spacing: 1px;
+    background-color: transparent;
+}
+.frgttn-msg-wrap, .rmber-me-chk{
+    width: 80%;
+    text-align: right;
+    margin: 8px auto;
+}
+.frgttn-msg-wrap button{
+    background-color: white;
+    font-weight: bold;
+    border: none;
+    letter-spacing: 1.2px;
+    color: var(--secondary);
+    cursor: pointer;
+}
+.rmber-me-chk{
+    text-align: left;
+}
+.rmber-me-chk label{
+    font-weight: bold;
+    letter-spacing: 1.1px;
+    margin-left: 2px;
+    font-size: 14px;
+}
+
+.login-btn-vldtmsg{
+    width: 80%;
+    margin: 8px auto;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.login-btn-vldtmsg .login-acc-btn{
+    background-color: white;
+    padding: 10px 25px;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px var(--brdr);
+    border: 1px solid var(--brdr);
+    letter-spacing: 1.2px;
+    color: var(--secondary);
+    cursor: pointer;
+}
+.login-btn-vldtmsg .login-acc-btn:hover{
+    box-shadow:inset 2px 2px 2px var(--brdr);
+}
+.login-btn-vldtmsg .validt-msg{
+    color: var(--error);
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    font-size: 13px;
+}
+.or-label{
+    color: var(--icon);
+    font-weight: bold;
+    font-size: 12px;  
+    width: 80px;
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -2%;
+}
+
+.dnthaveacc-msg-wrap, .alrdyhve-msg-wrap{
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.alrdyhve-msg-wrap{
+    margin-top: 10px;
+}
+.dnthaveacc-msg-wrap p, .alrdyhve-msg-wrap p{
+    font-weight: bold;
+    letter-spacing: 1.1px;
+    font-size: 13px;
+}
+.dnthaveacc-msg-wrap p span{
+    color: var(--secondary);
+}
+.alrdyhve-msg-wrap p span{
+    color: var(--authRegCl);
+}
+
+/* Authentication Other Option Button */
+.rght-auth-optbtn{
+    width: 100%;
+    height: max-content;
+    text-align: center;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px;
+}
+.rght-auth-optbtn>button{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px var(--brdr);
+    border: 1px solid var(--brdr);
+    letter-spacing: 1.1px;
+    color: var(--icon);
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.g_id_signin{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    letter-spacing: 1.1px;
+}
+
+.extra-margin{
+    margin: -40px 0 0 0;
+}
+
+.rght-auth-optbtn button:hover{
+    box-shadow:inset 2px 2px 2px var(--brdr);
+    color: var(--secondary);
+}
+.rght-auth-optbtn > button span,.g_id_signin{
+    width: 80%;
+}
+
+
+/* Authentication Registration Wrapper */
+.authreg-sec-wrap{
+    width: 75vw;
+    height: 90vh;
+    background: var(--shdwBg);
+    box-shadow: 0 0 25px 0 rgba(223, 223, 223, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid var(--brdr);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* display: none; */
+    animation-name: slow-visible;
+    animation-timing-function: ease;
+    animation-duration: 2s;
+} 
+.authreg-sec-wrap .rght-authreg-wrap .rght-authreg-body{
+    width: 90%;
+}
+.unshow-authreg-sec-wrap{
+    display: none;
+}
+
+/* track section style */
+.trac-cont-wrap{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--brdr);
+    /* display: none; */
+}
+.trac-cont-wrap .line{
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.trac-cont-wrap > div, .trac-cont-wrap .line{
+    opacity: 0.3;
+}
+.trac-cont-wrap > div .octagon-track-wrap{
+    margin-bottom: 5px;
+    color: var(--icon);
+}
+.trac-cont-wrap > div p{
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 13px;
+    color: var(--authRegCl);
+}
+.trac-cont-wrap .visible-verify-wrap{
+    opacity: 1;
+    transform: scale(1.01);
+}
+.trac-cont-wrap .visible-tracker-line{
+    opacity: 1;
+    color: var(--valid);
+}
+.trac-cont-wrap .visible-verify-wrap i{
+    color: var(--valid);
+}
+.trac-cont-wrap .visible-verify-wrap p{
+    color: var(--icon);
+}
+
+/* dynamic registration wrap style */
+.rght-authreg-body .mainreg-dynamicinpt-sec-wrap{
+    width: 100%;
+    height: 200px;
+    /* border: 1px solid black; */
+    /* margin-bottom: 10px; */
+}
+.show-default-newuserEmail-wrap, .show-verifyemail-otp-wrapper, .show-passwordemail-acc-wrap, .show-tuitionDtlRegSec-wrap{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+.unshow-default-newuserEmail-wrap, .unshow-verifyemail-otp-wrapper, .unshow-passwordemail-acc-wrapper, .unshow-tuitionDtlRegSec-wrapper{
+    display: none;
+}
+.rght-authreg-body .mainreg-dynamicinpt-sec-wrap .dynamicprt-msg{
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 13px;
+    color: var(--icon);
+}
+.rght-authreg-body .mainreg-dynamicinpt-sec-wrap .newusr-email-wrap, .otp-email-wrap, .pwd-account-wrap, .ttn-name-wrap, .ttn-webname-wrap{
+    width: 100%;
+    height: 65px;
+    padding: 8px;
+    border: 1px solid var(--brdr);
+    margin: 5px auto;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.otp-email-wrap{
+    padding: 0 20px;
+    justify-content: space-between;
+}
+.otp-email-wrap .userEmail-otp-icn-wrap, .ttn-webname-wrap .ttnweb-icn-wrap, .ttn-name-wrap .ttn-icn-wrap{
+    color: var(--icon);
+}
+.newUseremail-cntnt, .otp-email-wrap .useremail-otp-cntnt, .pwd-account-wrap .pwdUserAcc-cntnt, .ttn-name-wrap .ttnName-cntnt, .ttn-webname-wrap .ttnwebName-cntnt{
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.otp-email-wrap .useremail-otp-cntnt{
+    width: 50%;
+    margin-left: 0 10px;
+}
+.newUseremail-cntnt label, .otp-email-wrap .useremail-otp-cntnt label, .pwd-account-wrap .pwdUserAcc-cntnt label, .ttn-name-wrap .ttnName-cntnt label, .ttn-webname-wrap .ttnwebName-cntnt label{
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--authRegCl);
+    margin-left: 3px;
+}
+.ttn-webname-wrap .ttnwebName-cntnt label span{
+    color: var(--icon);
+}
+.newUseremail-cntnt .focus-newUseremail-lbl, .otp-email-wrap .useremail-otp-cntnt .foucs-useremail-otp, .required-cntnt{
+    color: var(--error);
+}
+.pwd-account-wrap .pwdUserAcc-cntnt form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.pwd-account-wrap .pwdUserAcc-cntnt form i{
+    margin-left: 10px;
+    color: var(--icon);
+}
+.newUseremail-cntnt input, .otp-email-wrap .useremail-otp-cntnt input, .pwd-account-wrap .pwdUserAcc-cntnt form input, .ttn-webname-wrap .ttnwebName-cntnt input, .ttn-name-wrap .ttnName-cntnt input{
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 11.5px;
+    border: none;
+    outline: none;
+    font-family: 'Nunito', sans-serif;
+    color: var(--icon);
+    font-weight: bold;
+    letter-spacing: 1px;
+    background-color: rgba(235, 235, 235, 0.137);
+}
+.rght-authreg-body .mainreg-dynamicinpt-sec-wrap .verify-btn-vldtmsg, .chckPwd-btn-vldtmsg, .final-btn-vldtmsg{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+}
+.final-btn-vldtmsg{
+    margin-top: 10px;
+}
+.rght-authreg-body .mainreg-dynamicinpt-sec-wrap .verify-btn-vldtmsg button, .chckPwd-btn-vldtmsg button, .final-btn-vldtmsg button{
+    background-color: white;
+    padding: 10px 25px;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px var(--brdr);
+    border: 1px solid var(--brdr);
+    letter-spacing: 1.2px;
+    color: var(--authRegCl);
+    cursor: pointer;
+}
+.final-btn-vldtmsg button{
+    padding: 10px 15px;
+}
+.final-btn-vldtmsg button i{
+    color: var(--icon);
+    margin-right: 5px;
+}
+.chckPwd-btn-vldtmsg button i{
+    color: var(--icon);
+    margin-left: 5px;
+}
+.final-btn-vldtmsg p{
+    width: 58%;
+    margin-left: 10px;
+}
+.validate-prces-btn{
+    background-color: white;
+    padding: 8px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px var(--brdr);
+    border: 1px solid var(--brdr);
+    letter-spacing: 1.2px;
+    color: var(--authRegCl);
+    cursor: pointer;
+}
+.rght-authreg-body .mainreg-dynamicinpt-sec-wrap .verify-btn-vldtmsg button:hover, .validate-prces-btn:hover, .chckPwd-btn-vldtmsg button:hover, .final-btn-vldtmsg button:hover{
+    box-shadow:inset 1px 1px 1px var(--brdr);
+}
+.rght-authreg-body .mainreg-dynamicinpt-sec-wrap .verify-btn-vldtmsg .validt-msg, .validate-email-msg, .validt-pwd-msg{
+    color: var(--error);
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    font-size: 13px;
+    padding-right: 10px;
+}
+.validate-email-msg, .validt-pwd-msg{
+    width: 100%;
+    margin-top: 8px;
+    text-align: left;
+}
+
+/* Verification Email by OTP */
+.newusr-email-disabledlabel-wrap{
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--brdr);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    margin-top: 8px;
+    box-shadow: 1px 1px 2px var(--brdr);
+}
+.newusr-email-disabledlabel-wrap p{
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: var(--valid);
+    opacity: 0.8;
+}
+.newusr-email-disabledlabel-wrap p i{
+    margin-right: 5px;
+}
+.newusr-email-disabledlabel-wrap button{
+    border: none;
+    outline: none;
+    padding: 5px;
+    background-color: white;
+    font-weight: bold;
+    color: var(--authRegCl);
+    cursor: pointer;
+    font-size: 12.5px;
+    letter-spacing: 1px;
+}
+.newusr-email-disabledlabel-wrap button:hover{
+    color: var(--icon);
+}
+#resentOTPLabel{
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: var(--authRegCl);
+}
+#resentOTPLabel span{
+    color: var(--icon);
+}
+.pwd-account-wrap .pwdUserAcc-cntnt .focus-pwdlabel-wrap, .ttn-name-wrap .ttnName-cntnt .focus-ttlName-label, .ttn-webname-wrap .ttnwebName-cntnt .focus-ttlWeb-label{
+    color: var(--error);
+}
+
+
+
+
+/* Style for making page responsive */
+
+@media screen and (max-width : 600px){
+    .abstract-left {
+        bottom: 10%;
+        left: -10%;
+    }
+    .abstract-right{
+        top: 10%;
+        right: 0;
+    }
+
+    .auth-sec-wrap .rght-auth-wrap, .authreg-sec-wrap .rght-authreg-wrap {
+        padding: 20px 0;
+    }
+
+    .auth-page-wrap .abstract-glass{
+        width: 150px;
+        height: 120px;
+    }
+
+    .auth-sec-wrap>div , .authreg-sec-wrap>div{
+        width: 95%;
+        height: 30vh;
+    }
+    
+    .auth-page-wrap .rght-auth-wrap, .authreg-sec-wrap .rght-authreg-wrap{
+        width: 95%;
+        height: 55vh;
+    }
+
+    .rght-auth-body{
+        padding: 0;
+    }
+
+    .auth-sec-wrap{
+        width: 100%;
+        height: 75%;
+        flex-direction: column;
+    }
+
+    .authreg-sec-wrap{
+        width: 100%;
+        flex-direction: column;
+        height: 65vh;
+    }
+    
+    /* for remove registration image from registration page */
+    .authreg-sec-wrap .left-authreg-wrap .login-svg{
+        display: none;
+    }
+    
+    .cnt-word-wrap div{
+        margin: 10px 0;
+    }
+
+    
+    .cnt-word-wrap div p{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: small;
+        width: 100%;
+    }
+
+    .cnt-word-wrap{
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-weight: bolder;
+    }
+
+    .cnt-word-wrap div i{
+        display: none;
+    }
+
+    .cnt-word-wrap div p img{
+        width: 20px;
+        font-size: medium;
+    }
+    
+    .topleft-auth-head{
+        justify-content: center;
+        width: 90%;
+        display: flex;
+    }
+    
+    .left-auth-wrap{
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .login-svg{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .abstract-right ,.abstract-glass{
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .login-btn-vldtmsg .login-acc-btn{
+        padding: 10px;
+    }
+
+    .left-auth-wrap, .authreg-sec-wrap .left-authreg-wrap{
+        width: 100%;
+    }
+
+    .authreg-sec-wrap .rght-authreg-wrap .rght-authreg-body{
+        width: 99%;
+        padding: 0;
+        margin-bottom: 15px;
+    }
+
+    .or-label{
+        margin-top: 10px;
+    }
+
+    .rght-authreg-body .mainreg-dynamicinpt-sec-wrap .verify-btn-vldtmsg button{
+        padding: 10px;
+    }
+
+    .g_id_signin{
+        margin-top:15px;
+    }
+
+    .extra-margin{
+        margin: 0;
+    }
+
+    .rght-auth-optbtn{
+        margin: 0;
+    }
+}
+
+@media screen and (min-width:600px) and (max-width : 750px){
+    .haAclf{
+        width: 250px;
+    }
+    
+    .cnt-word-wrap{
+        width: 100%;
+    }
+    .cnt-word-wrap p{
+        font-size: 12px;
+    }
+
+    .left-auth-wrap{
+        width: 45%;
+    }
+
+    .auth-sec-wrap .rght-auth-wrap{
+        width: 55%;
+    }
+
+
+    .cnt-word-wrap p img{
+        width: 16px;
+    }
+
+    .auth-sec-wrap .rght-auth-wrap .rght-auth-body{
+        padding: 5px;
+    }
+
+    .login-btn-vldtmsg .login-acc-btn{
+        padding: 10px 7px;
+    }
+
+    .auth-sec-wrap > div, .authreg-sec-wrap > div{
+        padding: 0;
+    }
+
+    .authreg-sec-wrap .rght-authreg-wrap .rght-authreg-body{
+        padding: 0;
+    }
+}
+
+
+@media screen and (max-width:830px) {
+    .auth-sec-wrap,.authreg-sec-wrap{
+        width: 95%;
+    }
+    .usr-email-wrap,.usr-pwd-wrap,.frgttn-msg-wrap,.rmber-me-chk,.login-btn-vldtmsg,.dnthaveacc-msg-wrap{
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:750px) and (max-width:1000px){
+    .cnt-word-wrap p{
+        font-size: large;
+    }
+    .login-btn-vldtmsg .login-acc-btn , .rght-authreg-body .mainreg-dynamicinpt-sec-wrap .verify-btn-vldtmsg button{
+        padding: 10px 15px;
+    }
+    .auth-sec-wrap, .authreg-sec-wrap{
+        width: 90%;
+    }
+
+    .rght-auth-optbtn{
+        width: 100%;
+    }
+}
+@media screen and (max-width:1000px){   
+    .dnthaveacc-msg-wrap, .alrdyhve-msg-wrap{
+        width: 95%;
+    } 
+}
+
+@media screen and (min-width:830px) and (max-width:1200px){
+    .auth-sec-wrap, .authreg-sec-wrap{
+        width: 90%;
+    }
+}

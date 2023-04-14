@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication | TutorsHub</title>
+    <link rel="stylesheet" href="../assets/css/auth/style.css">
+    <link rel="stylesheet" href="../assets/css/auth/utility.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <main class="auth-page-wrap">     
+        <div id="abstractShap1Glass" class="abstract-right abstract-glass">
+            <svg id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <defs id="abstractLeftRight"> 
+                    <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
+                        <stop id="stop1" stop-color="rgba(55, 7, 242, 1)" offset="0%"></stop>
+                        <stop id="stop2" stop-color="rgba(146, 118, 255, 0.56)" offset="100%"></stop>
+                    </linearGradient>
+                </defs>
+            <path fill="url(#sw-gradient)" d="M19.9,-30.5C25.2,-27.4,28.8,-21.1,31.5,-14.5C34.3,-8,36.4,-1.2,35,4.8C33.7,10.7,29.1,16,24.5,21.1C19.9,26.3,15.3,31.4,9.8,32.8C4.3,34.2,-2.2,31.8,-8.4,29.6C-14.6,27.3,-20.6,25.2,-25.8,21.2C-31,17.2,-35.5,11.5,-37.8,4.6C-40.2,-2.4,-40.5,-10.5,-37,-16.3C-33.5,-22.2,-26.2,-25.8,-19.4,-28.3C-12.6,-30.7,-6.3,-31.9,0.5,-32.7C7.2,-33.4,14.5,-33.6,19.9,-30.5Z" width="100%" height="100%" transform="translate(50 50)" stroke-width="0" style="transition: all 0.3s ease 0s;"></path>
+          </svg>
+        </div>
+        <div id="abstractShap2Glass" class="abstract-left abstract-glass">
+            <svg id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <defs> 
+                    <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
+                        <stop id="stop1" stop-color="rgba(0, 112.063, 124.156, 1)" offset="0%"></stop>
+                        <stop id="stop2" stop-color="rgba(92.228, 246.729, 255, 0.86)" offset="100%"></stop>
+                    </linearGradient>
+                </defs>
+            <path fill="url(#sw-gradient)" d="M19.9,-30.5C25.2,-27.4,28.8,-21.1,31.5,-14.5C34.3,-8,36.4,-1.2,35,4.8C33.7,10.7,29.1,16,24.5,21.1C19.9,26.3,15.3,31.4,9.8,32.8C4.3,34.2,-2.2,31.8,-8.4,29.6C-14.6,27.3,-20.6,25.2,-25.8,21.2C-31,17.2,-35.5,11.5,-37.8,4.6C-40.2,-2.4,-40.5,-10.5,-37,-16.3C-33.5,-22.2,-26.2,-25.8,-19.4,-28.3C-12.6,-30.7,-6.3,-31.9,0.5,-32.7C7.2,-33.4,14.5,-33.6,19.9,-30.5Z" width="100%" height="100%" transform="translate(50 50)" stroke-width="0" style="transition: all 0.3s ease 0s;"></path>
+          </svg>
+        </div>
+
+        <section id="authLoginSecWrap" class="auth-sec-wrap">
+            <div class="left-auth-wrap">
+                <div class="topleft-auth-head">
+                    <div class="cnt-word-wrap">
+                        <div><i class="fa-solid fa-arrow-right-to-bracket"></i> Log In</div>
+                        <div>
+                            <p><span><img src="../assets/images/auth/namaste.png" alt=""> Welcome back!, </span><br />Let's get started.</p>
+                        </div>
+                    </div>
+                    <div class="login-svg">
+                        <img src="../assets/images/auth/Auth_Background.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="rght-auth-wrap"> 
+                <div class="rght-auth-body">
+                    <div id="emailSecWrap" class="usr-email-wrap">
+                        <div class="email-icn-wrap"><i class="far fa-envelope"></i> </div>
+                        <div class="email-cntnt">
+                            <label id="emailLabel" for="usrEmailInpt">Email Address <span class="required-cntnt">*</span></label>
+                            <input type="email" name="usrEmailIn" id="usrEmailInptSignIn" placeholder="joe@gmail.com" required="">
+                        </div>
+                    </div>
+                    <div id="pwdSecWrap" class="usr-pwd-wrap">
+                        <div class="pwd-icn-wrap">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <div id="pwdCntSignIn" class="pwn-cntnt">
+                            <label id="pwdLabel" for="usrPwdInpt">Password <span class="required-cntnt">*</span></label>
+                            <div class="pwd-hid-shw">
+                                <input type="password" name="usrPwdIn" id="usrPwdInptSignIn" placeholder="Enter Your Password" required="">
+                                <i id="hdShwSignInBtn" class="far fa-eye-slash"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frgttn-msg-wrap">
+                        <button type="button" id="fgtnBtn" class="fgtn-btn" onclick="openForgotPwdPage()">Forgot Password?</button>
+                    </div>
+                    <div class="rmber-me-chk">
+                        <input type="checkbox" name="rmberUsrDt" id="chkRmberUsrDt">
+                        <label for="chkRmberUsrDt">Remember Me</label>
+                    </div>
+                    <div class="login-btn-vldtmsg">
+                        <button id="loginAccBtn" class="login-acc-btn"><i class="fa-regular fa-circle-check"></i> Log In</button>
+                        <p id="errMsgLbl" class="validt-msg"></p>
+                    </div>
+                    <div id="regPageShowBtn" class="dnthaveacc-msg-wrap">
+                        <p>Don't have an account? <span>Sign Up Now</span></p>
+                    </div>
+                    <p class="or-label">OR</p>
+                </div>
+                <div class="rght-auth-optbtn">
+                    <div id="g_id_onload"
+                        data-client_id="1075165961064-agipjg20017o8auvc8g4aa927qd6rmvo.apps.googleusercontent.com"                    data-login_uri="http://localhost:5500/" data-auto_prompt="true" data-callback="onSignIn">
+                    </div>
+                    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline"
+                        data-text="continue_with" data-shape="square" 
+                        data-logo_alignment="left" data-width="300">
+                    </div>
+                    <!-- <button class="sign-with-google"><img src="./ASSET/google.png" alt="" draggable="false"> <span>Continue with Google</span></button> -->
+                    <button class="sign-with-microsoft"><img src="../assets/images/auth/microsoft.png" alt="" draggable="false"> <span>Continue with Microsoft</span></button>
+                </div>
+            </div>
+        </section>
+
+        <section id="authRegSecWrap" class="authreg-sec-wrap">
+            <div class="left-authreg-wrap">
+                <div class="topleft-authreg-head">
+                    <div class="cnt-wordreg-wrap">
+                        <div>Create new account</div>
+                        <div>
+                            <p>Let's get started with your free trial.</p>
+                        </div>
+                    </div>
+                    <div class="login-svg">
+                        <img src="../assets/images/auth/Authentication_Reg_bg.gif" alt="">
+                    </div>
+                </div>
+                <!-- <div class="topleft-authreg-head">
+                    <h1>Create new account</h1>
+                    <p>Let's get started with your free trial.</p>
+                </div>
+                <img src="./ASSET/Authentication_Reg_bg.gif" alt="" draggable="false"> -->
+            </div>
+            <div class="rght-authreg-wrap"> 
+                <div class="rght-authreg-body">
+                    <div class="trac-cont-wrap">
+                        <div id="verifyTrackWrap" class="verify-track-cont">
+                            <div class="octagon-track-wrap">
+                                <i id="verifyEmailIcon" class="fa-regular fa-circle-check"></i>
+                            </div>
+                            <p>Verify</p>
+                        </div>
+                        <p id="verifyTrackLine" class="line">-------------</p>
+                        <div id="pwdTrackWrap" class="pwd-track-cont">
+                            <div class="octagon-track-wrap">
+                                <i id="pwdTrackIcon" class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <p>Password</p>
+                        </div>
+                        <p id="pwdTrackLine" class="line">-------------</p>
+                        <div id="liveTrackWrap" class="tuition-trac-cont">
+                            <div class="octagon-track-wrap">
+                                <i id="liveTrackIcon" class="fa-regular fa-thumbs-up"></i>
+                            </div>
+                            <p>Live</p>
+                        </div>
+                    </div>
+                    <div id="mainRegDynamicSecWrap" class="mainreg-dynamicinpt-sec-wrap">
+                        <div id="sectionNewUserEmail" class="show-default-newuserEmail-wrap">
+                            <p class="dynamicprt-msg">Get started now!.</p>
+                            <div id="newUserEmailSecWrap" class="newusr-email-wrap">
+                                <div id="newUserEmailIconWrap" class="email-icn-wrap"><i class="far fa-envelope"></i> </div>
+                                <div class="newUseremail-cntnt">
+                                    <label id="newUserEmailLabel" for="newUsrEmailIn">Email Address <span class="required-cntnt">*</span></label>
+                                    <input type="email" name="newUsrEmailIn" id="newUsrEmailInpt" placeholder="joe@gmail.com" required="">
+                                </div>
+                            </div>
+                            <div class="verify-btn-vldtmsg">
+                                <button id="verifyEmailBtn" class="verify-prces-btn">Next<i class="fa-solid fa-caret-right"></i></button>
+                                <p id="verifyEmailErrMsgLbl" class="validt-msg"></p>
+                            </div>
+                        </div>
+                        
+                        <div id="sectionVerifyOtpEmail" class="show-verifyemail-otp-wrapper unshow-verifyemail-otp-wrapper">
+                            <p class="dynamicprt-msg">Verify your email here.</p>
+                            <div class="newusr-email-disabledlabel-wrap">
+                                <p id="newUserActualEmailLabel"><i class="fa-regular fa-circle-check"></i> <span id="actualValidUserEmail">nayaksahil992003@gmail.com</span></p>
+                                <button id="editNewUserEmailBtn" class="edit-userNewEmail-btn"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
+                            </div>
+                            <p id="resentOTPLabel"><span>Don't Received Mail?</span> Resend OTP</p>
+                            <div id="otpEmailWrap" class="otp-email-wrap">
+                                <div id="userEmailOtpIcon" class="userEmail-otp-icn-wrap"><i class="fa-solid fa-envelope-open-text"></i> </div>
+                                <div class="useremail-otp-cntnt">
+                                    <label id="mailOTPLabel" for="userEmailOTPInpt">Enter OTP <span class="required-cntnt">*</span></label>
+                                    <input type="text" name="userEmailOTPInpt" id="emailOTPInpt" placeholder="******" required="">
+                                </div>
+                                <button id="validateOtpBtn" class="validate-prces-btn"><i class="fa-regular fa-circle-check"></i> Verify</button>
+                            </div>
+                            <p id="ValidateEmailOTPErrMsgLbl" class="validate-email-msg"></p>
+                        </div>
+                        
+                        <div id="sectionPwdAccount" class="show-passwordemail-acc-wrap unshow-passwordemail-acc-wrapper">
+                            <!-- <div style="margin-top: 0; margin-bottom: 12px;" class="newusr-email-disabledlabel-wrap">
+                                <p style="font-size: 12.5px;" id="newUserActualEmailLabel"><i class="fa-regular fa-circle-check"></i> <span id="actualValidUserEmail">nayaksahil992003@gmail.com</span></p>
+                                <button style="font-size: 12.5px;" id="editNewUserEmailBtn" class="edit-userNewEmail-btn"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
+                            </div> -->
+                            <p class="dynamicprt-msg">Specify strong passsword for your account.</p>
+                            <div id="pwdUserAccountWrap" class="pwd-account-wrap">
+                                <div id="pwdIconWrapper" class="pwd-icn-wrap"><i class="fa-solid fa-key"></i></div>
+                                <div class="pwdUserAcc-cntnt">
+                                    <label id="pwdUserAccLabel" for="pwdUserAccInpt">Password <span class="required-cntnt">*</span></label>
+                                    <form action="#" method="post">
+                                        <input type="password" name="pwdUserAccInpt" id="pwdUserAccInpt" placeholder="***********" autocomplete="new-password">
+                                        <i id="hdShwRegPwdBtn" class="far fa-eye-slash"></i>
+                                    </form>
+                                </div>
+                            </div>
+                            <div id="pwdUserAccountWrap" class="pwd-account-wrap">
+                                <div id="pwdConfirmIconWrapper" class="pwd-icn-wrap"><i class="fa-solid fa-key"></i></div>
+                                <div class="pwdUserAcc-cntnt">
+                                    <label id="confirmPwdUserAccLabel" for="confirmPwdUserAccInpt">Confirm Password <span class="required-cntnt">*</span></label>
+                                    <form action="#" method="post">
+                                        <input type="password" name="confirmPwdUserAccInpt" id="confirmPwdUserAccInpt" placeholder="***********" autocomplete="new-password">
+                                        <i id="hdShwRegCnfPwdBtn" class="far fa-eye-slash"></i>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="chckPwd-btn-vldtmsg">
+                                <button id="pwdNextBtn" class="pwd-prces-btn">Save <i class="fa-solid fa-user-lock"></i></button>
+                            </div>
+                            <p id="verifyPwdMsgLbl" class="validt-pwd-msg"></p>
+                        
+                        </div>
+
+                        <div id="sectionTuitionDtl" class="show-tuitionDtlRegSec-wrap unshow-tuitionDtlRegSec-wrapper">
+                            <!-- unshow-tuitionDtlRegSec-wrapper -->
+                            <div id="ttnNameWrap" class="ttn-name-wrap">
+                                <div id="ttnIconWrap" class="ttn-icn-wrap"><i class="fa-solid fa-chalkboard-user"></i></div>
+                                <div class="ttnName-cntnt">
+                                    <label id="ttnNameLabel" for="ttnNameInpt">Tution Name <span class="required-cntnt">*</span></label>
+                                    <input type="text" name="ttnNameInpt" id="ttnNameInpt" placeholder = "Shivam Classes">
+                                </div>
+                            </div>
+
+                            <div id="ttnWebNameWrap" class="ttn-webname-wrap">
+                                <div id="ttnwebIconWrap" class="ttnweb-icn-wrap"><i class="fa-solid fa-link"></i></div>
+                                <div class="ttnwebName-cntnt">
+                                    <label id="ttnWebNameLabel" for="ttnWebNameInpt">TutorsHub.com/<span>Tuition-Name</span></label>
+                                    <input type="text" name="ttnWebNameInpt" id="ttnWebNameInpt" placeholder = "shivam-class">
+                                </div>
+                            </div>
+
+                            <div class="final-btn-vldtmsg">
+                                <button id="finalRegDtlBtn" class="final-reg-btn"><i class="fa-solid fa-rocket"></i> Let's Start</button>
+                                <p id="finalVerfDtlLabelMsg" class="validt-pwd-msg"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="loginPageShowBtn" class="alrdyhve-msg-wrap">
+                        <p>Already have an account? <span>Login Now</span></p>
+                    </div>
+                    <p class="or-label">OR</p>
+                </div>
+                <div class="rght-auth-optbtn extra-margin" >
+                    <div id="g_id_onload"
+                        data-client_id="1075165961064-agipjg20017o8auvc8g4aa927qd6rmvo.apps.googleusercontent.com"  data-login_uri="http://localhost:5500/Auth" data-auto_prompt="true" data-callback="onSignIn">
+                    </div>
+                    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline"
+                        data-text="continue_with" data-shape="square" 
+                        data-logo_alignment="left" data-width="300">
+                    </div>
+                    <!-- <button class="sign-with-google"><img src="./ASSET/google.png" alt="" draggable="false"> <span>Continue with Google</span></button> -->
+                    <button class="sign-with-microsoft"><img src="../assets/images/auth/microsoft.png" alt="" draggable="false"> <span>Continue with Microsoft</span></button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../assets/js/auth/script.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</body>
+</html>

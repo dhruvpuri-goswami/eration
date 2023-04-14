@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Password | TutorsHub</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <main class="mainforgetpage-section-wrap">
+        <section id="forgotSecWrap" class="contforgot-sec-wrap">
+            <div class="head-forgtsec-wrap">
+                <h1><i class="fa-solid fa-key"></i> Create New Password</h1>
+                <p>First verify your account and then, change the password</p>
+            </div>
+            <div class="btm-forgtsec-wrap">
+                <div id="checkMailWrapSec" class="checkMail-wrapp-allinpt">
+                    <div id="emailSecWrap" class="usr-email-wrap">
+                        <div class="email-icn-wrap"><i class="far fa-envelope"></i> </div>
+                        <div class="email-cntnt">
+                            <label id="emailLabel" for="usrEmailInpt">Email Address <span
+                                    class="required-cntnt">*</span></label>
+                            <input type="email" name="usrEmailIn" id="usrEmailInpt" placeholder="joe@gmail.com">
+                        </div>
+                    </div>
+                    <div class="checkMail-btn-vldtmsg">
+                        <button id="checkMailBtn" class="checkMail-acc-btn"><i class="fa-solid fa-share"></i>
+                            Send</button>
+                        <p id="emailErrMsgLbl" class="validt-msg"></p>
+                    </div>
+                </div>
+                <div id="otpVerfctWrapSec" class="otp-wrap-allinpt hide-opacity-wrapsec">
+                    <p id="resentOTPLabel"><span>Don't Received Mail?</span> Resend OTP</p>
+                    <div id="otpEmailWrap" class="otp-email-wrap">
+                        <div id="userEmailOtpIcon" class="userEmail-otp-icn-wrap"><i class="fa-solid fa-envelope-open-text"></i>
+                        </div>
+                        <div class="useremail-otp-cntnt">
+                            <label id="mailOTPLabel" for="userEmailOTPInpt">Enter OTP <span
+                                    class="required-cntnt">*</span></label>
+                            <input type="text" name="userEmailOTPInpt" id="emailOTPInpt" placeholder="****" required="">
+                        </div>
+                        <button id="verfyOtpBtn" class="verfy-otp-btn"><i class="fa-regular fa-circle-check"></i> Verify</button>
+                    </div>
+                    <p id="otpErrorMsgLabel" class="otp-verification-msg-label"></p>
+                </div>
+                <div id="savePwdWrapSec" class="savepwd-wrap-allinpt hide-opacity-wrapsec">
+                    <div id="pwdUserAccountWrap" class="pwd-account-wrap">
+                        <div id="pwdIconWrapper" class="pwd-icn-wrap"><i class="fa-solid fa-key"></i></div>
+                        <div class="pwdUserAcc-cntnt">
+                            <label id="pwdUserAccLabel" for="pwdUserAccInpt">Password <span class="required-cntnt">*</span></label>
+                            <form action="#" method="post">
+                                <input type="password" name="pwdUserAccInpt" id="pwdUserAccInpt" placeholder="***********" autocomplete="new-password">
+                                <i id="hdShwRegPwdBtn" class="far fa-eye-slash"></i>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="savepwd-btn-vldtmsg">
+                        <button id="savePwdBtn" class="savepwd-acc-btn"><i class="fa-solid fa-lock"></i>
+                            Save</button>
+                        <p id="savePwdErrMsg" class="validt-msg"></p>
+                    </div>
+                </div>
+                <div class="quickuse-linkforgt">
+                    <a href="">Create New Account</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="./JS/script.js"></script>
+</body>
+
+</html>
