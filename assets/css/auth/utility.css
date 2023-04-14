@@ -1,9 +1,0 @@
-/* utility class css */
-.logotxt-primary{
-    color: var(--primary);
-    font-weight: bold;
-}
-.logotxt-secondary{
-    color: var(--secondary);
-    font-weight: bold;
-}
