@@ -1,21 +1,6 @@
 <?php
   include "connection.php";
   
-  if(isset($_REQUEST['rcard']))
-  {
-    $rcard=$_REQUEST['rcard'];
-    $sql4="SELECT * FROM tbl_user WHERE rationcard_no='$rcard'";
-    $result4=mysqli_query($conn,$sql4);
-    $count=mysqli_num_rows($result4);
-    if($count>=1)
-    {
-        echo '<script>
-        alert("You are alreay a user.");
-        window.location.href="../login/login.php";
-        </script>';
-    }
-    else
-    {
     if(isset($_POST['btn-signup']))
         {
         $filename = $_FILES["fileToUpload"]["name"];
@@ -85,157 +70,94 @@
         echo "<script>alert('Something Went Wrong')</script>";
         }
         }
-  }
-}
-else
-{
-    echo "<script>alert('Veify Ration csrd number....')</script>";
-}
 ?>
 <?php include 'config.php' ?>
+
+
+
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="zxx">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Register Here | E-Ration </title>
-    <link rel="stylesheet" href="style-signup.css?v=<?=$v?>">
+    <title>Register Page</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords"
+        content="Working Signin form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <!-- //Meta tag Keywords -->
+    <link href="//fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+    <!--/Style-CSS -->
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+    <!--//Style-CSS -->
+    <style>
+    .center {
+        text-align: left;
+    }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="title w3-margin">Registration</div>
-        <div class="content">
-            <form action="" method="post" enctype="multipart/form-data">
-                <div class="w3-row-padding">
-                    <div class="w3-third w3-margin-top">
-                        <label>First Name</label>
-                        <input class="w3-input w3-border w3-margin-top" type="text" placeholder="Enter First Name"
-                            name="fname" required>
-                    </div>
-                    <div class="w3-third w3-margin-top">
-                        <label>Middle Name</label>
-                        <input class="w3-input w3-border w3-margin-top" type="text" placeholder="Enter Middle Name"
-                            name="mname" required>
-                    </div>
-                    <div class="w3-third w3-margin-top">
-                        <label>Last Name</label>
-                        <input class="w3-input w3-border w3-margin-top" type="text" placeholder="Enter Last Name"
-                            name="lname" required>
-                    </div>
-                </div>
-                <div class="w3-row-padding w3-margin-top">
-                    <div class="w3-third w3-margin-top">
-                        <label>Email</label>
-                        <input class="w3-input w3-border w3-margin-top" name="email" type="email"
-                            placeholder="Enter Email" required>
-                    </div>
-                    <div class="w3-third w3-margin-top">
-                        <label>DOB</label>
-                        <input class="w3-input w3-border w3-margin-top" name="dob" type="date" required>
-                    </div>
-                    <div class="w3-third w3-margin-top">
-                        <label>Phone No.</label>
-                        <input class="w3-input w3-border w3-margin-top" name="phone_no" type="tel"
-                            placeholder="Enter Phone No." maxlength="10" required>
-                    </div>
-                </div>
-                <div class="w3-row-padding w3-margin-top">
-                    <div class="w3-third w3-margin-top">
-                        <label>Aadharcard No.</label>
-                        <input class="w3-input w3-border w3-margin-top" name="acard_no" type="number"
-                            placeholder="Enter Aadharcard No." maxlength="12" required>
-                    </div>
-                    <?php
-                    if(isset($_REQUEST['rcard']))
-                    {
-                    ?>
-                    <div class="w3-third w3-margin-top">
-                        <label>Rationcard No.</label>
-                        <input class="w3-input w3-border w3-margin-top" name="rcard_no" type="text"
-                            value="<?php echo $rcard; ?>" disabled>
-                    </div>
-                    <?php
-                    }
-                    ?>
-                    <div class="w3-third w3-margin-top">
-                        <label>File Upload</label>
-                        <input class="w3-input w3-border w3-margin-top" name="fileToUpload" type="file" required>
-                    </div>
-                </div>
-                <div class="w3-row-padding w3-margin-top">
-                    <div class="w3-third w3-margin-top">
-                        <label>State</label>
-                        <select class="w3-select w3-border w3-margin-top" name="state" required>
-                            <option value="" disabled selected>&nbsp;&nbsp;Select your State</option>
-                            <option value="Gujarat">Gujarat</option>
-                        </select>
-                    </div>
-                    <div class="w3-third w3-margin-top">
-                        <label>City</label>
-                        <select class="w3-select w3-border w3-margin-top" name="city" required>
-                            <option value="" disabled selected>&nbsp;&nbsp;Select your City</option>
-                            <option value="Ahmedabad">Ahmedabad</option>
-                            <option value="Rajkot">Rajkot</option>
-                            <option value="Surat">Surat</option>
-                        </select>
-                    </div>
-                    <div class="w3-third w3-margin-top">
-                        <label>Pincode</label>
-                        <input class="w3-input w3-border w3-margin-top" name="pincode" type="number"
-                            placeholder="Enter Pincode" maxlength="6" required>
-                    </div>
-                </div>
-                <div class="w3-row-padding w3-margin-top">
-                    <div class="w3-third w3-margin-top">
-                        <label>Gender</label>
-                        <div class="w3-padding-small">
-                            <p>
-                                <input class="w3-radio w3-margin-top w3-padding-small" type="radio" name="gender"
-                                    value="male" checked>
-                                <span>Male</span>
-                            </p>
-                            <p>
-                        </div>
-                        <div class="w3-padding-small">
-                            <input class="w3-radio w3-padding-small" type="radio" name="gender" value="female">
-                            <span>Female</span></p>
-                        </div>
-                        <div class="w3-padding-small">
-                            <p>
-                                <input class="w3-radio w3-padding-small" type="radio" name="gender" value="other">
-                                <span>Other</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="w3-third w3-margin-top">
-                        <label>Address</label><br>
-                        <textarea class="w3-margin-top w3-padding" cols="27" placeholder="Enter Address" name="address"
-                            required></textarea>
-                    </div>
-                    <div class="w3-third w3-margin-top">
-                        <label>Password</label>
-                        <input class="w3-input w3-border w3-margin-top" name="password" type="password"
-                            placeholder="Enter Password" required>
-                    </div>
-                    <div class="w3-third w3-margin-top">
-                        <label>Confirm Password</label>
-                        <input class="w3-input w3-border w3-margin-top" name="con_password" type="password"
-                            placeholder="Enter Confirm Password" required>
-                    </div>
-                </div>
-        </div>
-        <div class="w3-center w3-margin-top">
-            <button class="w3-button w3-margin-top w3-round-large"
-                style="background:linear-gradient(#00545d , #000729);color:white;" name="btn-signup">SUBMIT</button>
-        </div>
-        </form>
-    </div>
-    </div>
 
+    <!-- form section start -->
+    <section class="w3l-workinghny-form ">
+        <!-- /form -->
+        <div class="workinghny-form-grid">
+            <div class="wrapper">
+                <div class="logo">
+                    <h1><a class="brand-logo" style="pointer-events:none;"> Register Here</a></h1>
+                    <!-- if logo is image enable this   
+                        <a class="brand-logo" href="#index.html">
+                            <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+                        </a> -->
+                </div>
+                <div class="workinghny-block-grid">
+                    <div class="workinghny-left-img align-end">
+                        <img src="2.png" class="img-responsive" alt="img" />
+                    </div>
+                    <div class="form-right-inf">
+                        <form action="" class="login-form-content">
+                            <div class="loginuser admin w3-margin-right w3-margin-left w3-margin-top">
+                                <form action="" method="post">
+                                    <label>Rationcard Number</label>
+                                    <input type="text" class="w3-input w3-margin-top w3-margin-bottom"
+                                        name="adminusername" placeholder="Enter Username" required>
+<!-- 
+                                    <label>Enter Password</label>
+                                    <input type="password" class="w3-input w3-margin-top" name="adminpass"
+                                        placeholder="Enter Password" required>
+
+                                        <label>Enter Confirm Password</label>
+                                    <input type="password" class="w3-input w3-margin-top" name="adminpass"
+                                        placeholder="Enter Password" required> -->
+
+                                    <button type="submit" class="btn btn-style mt-3 w3-theme-d3" name="btn-admin">Verify Account </button>
+                            </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- //form -->
+    </section>
+    <!-- //form section start -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("select").change(function() {
+            $(this).find("option:selected").each(function() {
+                var optionValue = $(this).attr("value");
+                if (optionValue) {
+                    $(".loginuser").not("." + optionValue).hide();
+                    $("." + optionValue).show();
+                } else {
+                    $(".loginuser").hide();
+                }
+            });
+        }).change();
+    });
+    </script>
 </body>
 
 </html>
