@@ -10,7 +10,7 @@ if (isset($_SESSION['rationcard_no'])) {
        header("location: distributor.php");
        exit;
     }*/
-include "connection.php";
+include "../php/connection.php";
 if (isset($_POST['btn-login'])) {
     $post_rc_no = mysqli_real_escape_string($conn, $_POST['rc_no']);
     $post_password = md5(mysqli_real_escape_string($conn, $_POST['password']));
@@ -62,7 +62,7 @@ if (isset($_POST['btn-login'])) {
     <!-- //Meta tag Keywords -->
     <link href="//fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
     <!--/Style-CSS -->
-    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css" media="all" />
     <!--//Style-CSS -->
     <style>
     .center {
@@ -87,7 +87,7 @@ if (isset($_POST['btn-login'])) {
                 </div>
                 <div class="workinghny-block-grid">
                     <div class="workinghny-left-img align-end">
-                        <img src="2.png" class="img-responsive" alt="img" />
+                        <img src="../assets/images/2.png" class="img-responsive" alt="img" />
                     </div>
                     <div class="form-right-inf">
                         <form action="" class="login-form-content">

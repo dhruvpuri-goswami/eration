@@ -25,6 +25,7 @@ if (isset($_SESSION['rationcard_no'])) {
     $sql3="SELECT given_date FROM tbl_book WHERE rationcard_no='$rcard_no' ORDER BY given_date DESC";
     $result3=mysqli_query($conn,$sql3);
     $fetch=mysqli_fetch_assoc($result3);
+    
     $r_date=$fetch['given_date'];
     $Date=$r_date;
     $t_date = date('Y-m-d', strtotime($Date. ' + 30 days'));
@@ -109,6 +110,16 @@ if (isset($_SESSION['rationcard_no'])) {
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
+    <script>window.addEventListener('load',(event)=>{
+            if(localStorage.getItem('theme') =='dark'){
+                body.classList.add('dark');
+                modeText.innerText = "Light mode";
+            }else{
+                body.classList.remove('dark');
+                modeText.innerText = "Dark mode";
+            }
+        })</script>
+
     <title>Customer Dashboard | E-Ration</title>
     <style>
     .card {
@@ -165,6 +176,7 @@ if (isset($_SESSION['rationcard_no'])) {
         padding-left: 5px;
         padding-right: 5px;
         padding-bottom: 5px;
+        color: white;
     }
 
     table {

@@ -80,8 +80,8 @@ if (isset($_SESSION['rationcard_no'])) {
 <body>
     <div class="w3-container">
         <div class="w3-center w3-margin">
-            <img src="l2.png" width="100px" height="70px" alt="">
-            <img src="l1.png" alt="" width="170px" height="70px">
+            <img src="./images/l2.png" width="100px" height="70px" alt="">
+            <img src="./images/l1.png" alt="" width="170px" height="70px">
         </div>
         <h2 style="background-color:#0A2558;" class="w3-card w3-text-orange w3-padding-24 w3-round-large w3-center"
             style="text-shadow:1px 1px 0 #444">
@@ -288,8 +288,8 @@ if (isset($_SESSION['rationcard_no'])) {
             <h5>**If You have any Query regarding this , then please contact admin.</h5>
             <div class="w3-right w3-margin-right">
                 <h4><b>Best Regards From , </b></h4>
-                <img src="l2.png" width="50px" height="40px" alt="">
-                <img src="l1.png" alt="" width="100px" height="40px">
+                <img src="./images/l2.png" width="50px" height="40px" alt="">
+                <img src="./images/l1.png" alt="" width="100px" height="40px">
             </div>
             <br><br><br><br><br>
             <br><br><br>

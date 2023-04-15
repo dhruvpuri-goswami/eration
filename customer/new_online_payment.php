@@ -1,5 +1,7 @@
 <?php 
     session_start();
+    require './vendor/autoload.php';
+    use Razorpay\Api\Api;
 	if(isset($_SESSION['rationcard_no']))
     {
     include 'config.php';
@@ -40,6 +42,17 @@
         color: #555;
         border-radius: 20px;
     }
+    .form-payment{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    } 
+    .razorpay-payment-button{
+        padding: 14px 20px;
+        background-color: #0a2558;
+        color: white;
+        border-radius: 8px;
+    }
     </style>
 </head>
 
@@ -62,8 +75,8 @@
                 <b><?php echo "Dear, ". $user_details['fname']." ". $user_details['mname']." ". $user_details['lname'];?>
                     <br></b>
             </p>
-            <p class="w3-margin-top w3-large"><b>Your Amount : </b><?php echo "$ ".$price;?>
-                (<?php echo "Rs. ".$total_amt.".00";?>)</p><br>
+            <p class="w3-margin-top w3-large"><b>Your Amount : </b>
+                <?php echo "Rs. ".$total_amt.".00";?></p><br>
             <table class="table w3-margin-top">
                 <thead>
                     <tr>
@@ -157,30 +170,45 @@
         </table>
 
 
-        <div id="paypal-payment-button">
-        </div>
-        <h1 id="success"></h1>
-        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="sb-lh2o112107974@business.example.com">
-            <input type="hidden" name="item_name" value="<?php echo $rcard_no; ?>">
-            <input type="hidden" name="item_number" value="<?php echo $u_id; ?>">
-            <input type="hidden" name="amount" value="<?php echo $price; ?>">
-            <input type="hidden" name="no_shipping" value="1">
-            <input type="hidden" name="no_note" value="1">
-            <input type="hidden" name="currency_code" value="USD">
-            <input type="hidden" name="lc" value="AU">
+        <?php
+    
 
-            <input type="hidden" name="rm" value="2">
-            <input type="hidden" name="notify_url"
-                value="http://localhost/project-submission-it-batch-2019-E-RATION/eration/customer/success.php">
-            <input type="hidden" name="return"
-                value="http://localhost/project-submission-it-batch-2019-E-RATION/eration/customer/success.php">
+        $api = new Api('rzp_test_aRU1rjyM5pOCdU', 'rnQn3k3jgkU7ii2rgIPjdBvX');
 
-            <input type="submit" name="pay" value="Pay with PAYPAL" style="margin-left:40%;margin-top:20px;
-            width:200px;background-color: #0A2558;border: none;color: white;padding: 15px 32px;text-align: center;
-            text-decoration: none;display: inline-block;font-size: 16px;cursor: pointer;" class="w3-round">
-        </form>
+        $orderId = "ORDER_" . rand(); // a unique identifier for the order
+        $callbackUrl = "https://example.com/callback"; // the URL to redirect to after payment
+
+        $order = $api->order->create([
+            'amount' => $amt * 100,
+            'currency' => 'INR',
+            'receipt' => $orderId,
+            'payment_capture' => 1,
+            'notes' => [
+                'callback_url' => $callbackUrl,
+            ],
+        ]);
+
+        $_SESSION['order'] = $order;
+
+        $razorpayPaymentId = ''; // store this value in your database or session
+
+        // create a HTML button that will redirect the user to the Razorpay payment page
+        echo '<form class="form-payment" action="./orderdetails.php" method="POST">
+        <script src="https://checkout.razorpay.com/v1/checkout.js"
+                data-key="' . 'rzp_test_aRU1rjyM5pOCdU' . '"
+                data-amount="' . $amt . '"
+                data-currency="INR"
+                data-order_id="' . $order->id . '"
+                data-buttontext="Pay with Razorpay"
+                data-name="My Store"
+                data-description="Order #"'.$orderId.'"
+                data-image="../images/logo.png"
+                data-prefill.name="E-Ration"
+                data-prefill.email="eration@gmail.com"
+                data-theme.color="#F37254"></script>
+        <input type="hidden" name="razorpay_payment_id" value="' . $razorpayPaymentId. '">
+        </form>'; ?>
+        
     </div>
 </body>
 

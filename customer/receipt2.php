@@ -18,6 +18,7 @@
         $result1=mysqli_query($conn,$sql1);
         $row=mysqli_fetch_assoc($result1);
         $n=1;
+        
 ?>
 <!DOCTYPE html>
 <html>

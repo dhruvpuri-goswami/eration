@@ -135,15 +135,10 @@ header .image-text .profession {
     display: block;
 }
 
-.sidebar header .image-text {
-    display: block;
+.sidebar header .image {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.sidebar header .unshow-image{
-    display: none;
 }
 
 .sidebar header .image img {

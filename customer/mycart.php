@@ -55,6 +55,16 @@ if (isset($_SESSION['rationcard_no'])) {
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
+    <script>window.addEventListener('load',(event)=>{
+            if(localStorage.getItem('theme') =='dark'){
+                body.classList.add('dark');
+                modeText.innerText = "Light mode";
+            }else{
+                body.classList.remove('dark');
+                modeText.innerText = "Dark mode";
+            }
+        })</script>
+
     <title>Customer | E-Ration</title>
 </head>
 

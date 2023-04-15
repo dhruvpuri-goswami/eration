@@ -28,6 +28,16 @@
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
+    <script>window.addEventListener('load',(event)=>{
+            if(localStorage.getItem('theme') =='dark'){
+                body.classList.add('dark');
+                modeText.innerText = "Light mode";
+            }else{
+                body.classList.remove('dark');
+                modeText.innerText = "Dark mode";
+            }
+        })</script>
+
     <title>Customer | E-Ration</title>
 </head>
 
@@ -252,14 +262,15 @@
     </section>
 
     <script>
-    const body = document.querySelector('body'),
+        
+        const body = document.querySelector('body'),
         sidebar = body.querySelector('nav'),
         toggle = body.querySelector(".toggle"),
         searchBtn = body.querySelector(".search-box"),
         modeSwitch = body.querySelector(".toggle-switch"),
         modeText = body.querySelector(".mode-text");
 
-
+        
     toggle.addEventListener("click", () => {
         sidebar.classList.toggle("close");
     })

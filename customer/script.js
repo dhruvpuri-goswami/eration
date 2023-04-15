@@ -5,5 +5,5 @@ sidebarBtn.onclick = function() {
   if(sidebar.classList.contains("active")){
   sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
 }else
-sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
 }

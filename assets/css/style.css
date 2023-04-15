@@ -180,7 +180,6 @@ button:hover {
 
 .w3l-workinghny-form .align-end {
     align-self: flex-end;
-    padding: 2em;
 }
 
 .w3l-workinghny-form .logo a.brand-logo span {
@@ -203,6 +202,13 @@ button:hover {
     height: 100vh;
 }
 
+.inputdiv i{
+  align-self: center;
+  border-bottom: 2px solid black;
+  padding: 15px;
+  display: none;
+}
+
 .w3l-workinghny-form .pos-relative {
     position: relative;
 }
@@ -222,7 +228,7 @@ button:hover {
 .w3l-workinghny-form h2 {
     font-size: 30px;
     color: #fff;
-    margin-bottom: 15px;
+    align-items: center;
 }
 
 .w3l-workinghny-form .workinghny-block-grid {
@@ -262,6 +268,9 @@ button:hover {
     outline: none;
 }
 
+.w3l-workinghny-form .inputdiv:has(:focus) i{
+  border-bottom: 2px solid #4361ee;
+}
 .w3l-workinghny-form input:focus {
     background: transparent;
     border-bottom: 2px solid #4361ee;
@@ -965,3 +974,17 @@ nav .profile-details i{
   display: flex;
   margin-top: 50px;
 }
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
