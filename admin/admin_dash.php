@@ -89,6 +89,12 @@
                 </a>
             </li>
             <li>
+                <a href="distributor.php">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Distributors Details</span>
+                </a>
+            </li>
+            <li>
                 <a href="check_complaints.php">
                     <i class='bx bx-message'></i>
                     <span class="links_name">Check Complains</span>

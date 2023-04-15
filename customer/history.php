@@ -208,9 +208,7 @@
                 </thead>
                 <tbody>
                     <?php
-                $sql1="SELECT tbl_receipt.*, tbl_book.booking_id, tbl_payment.mode FROM tbl_receipt, tbl_book, tbl_payment 
-                WHERE tbl_book.rationcard_no='$rcard_no' AND tbl_book.booking_id=tbl_payment.booking_id 
-                AND tbl_payment.booking_id=tbl_receipt.booking_id AND tbl_receipt.u_name='$name'";
+                $sql1="SELECT * from tbl_receipt where rationcard_no = '$rcard_no'";
                 $result1=mysqli_query($conn,$sql1);
                 $trans=mysqli_fetch_all($result1,MYSQLI_ASSOC);
                 $cnt=mysqli_num_rows($result1);
@@ -223,7 +221,7 @@
                     <tr>
                         <td data-label="SR No."><?php echo $n; ?></td>
                         <td data-label="Date"><?php echo $stat['date']; ?></td>
-                        <td data-label="Mode of Payment"><?php echo $stat['mode']; ?></td>
+                        <td data-label="State of Payment"><?php echo $stat['state']; ?></td>
                         <td data-label="Amount"><?php echo $stat['amount']; ?></td>
                         <td data-label="Booking ID"><?php echo $stat['booking_id']; ?></td>
                         <?php
@@ -241,7 +239,7 @@
 
                             }
                         ?>
-                        <td data-label=""><a href="receipt2.php?r_id=<?php echo $stat['receipt_id']; ?>"
+                        <td data-label=""><a href="receipt1.php?r_id=<?php echo $stat['receipt_id']; ?>"
                                 class="btn w3-round-large">Recipt</a></td>
                     </tr>
                     <?php

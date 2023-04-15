@@ -28,7 +28,6 @@
         $sql1="SELECT * FROM tbl_book WHERE rationcard_no='$rcard_no' AND date='$date'";
         $result1=mysqli_query($conn,$sql1);
         $booking=mysqli_fetch_assoc($result1);
-        $booking_id=$booking['booking_id'];
 
         //inserting into payment table with refernece to booking_id
         $sql2="INSERT INTO tbl_payment (mode, date, time, amount, booking_id)

@@ -118,6 +118,12 @@ if (isset($_SESSION['user'])) {
                 </a>
             </li>
             <li>
+                <a href="stock_details.php">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Distributors Details</span>
+                </a>
+            </li>
+            <li>
                 <a href="check_complaints.php">
                     <i class='bx bx-message'></i>
                     <span class="links_name">Check Complains</span>

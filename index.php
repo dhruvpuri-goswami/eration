@@ -240,7 +240,8 @@
             </h2>
             <p class="text-body-color mb-9 text-base leading-relaxed">
               E-Ration Platform is the process of managing your ration, making it easy to access and customize your
-              orders according to your needs
+              orders according to your needs.
+              It also makes the process more transparent and fleasible to people and government itself.
             </p>
             <div class="mb-8 flex w-full max-w-[370px]">
               <div
@@ -303,31 +304,46 @@
         </div>
         <div class="w-full px-4 lg:w-1/2 xl:w-5/12">
           <div class="relative rounded-lg bg-white p-8 shadow-lg sm:p-12">
-            <form>
+            <form method="post" action=""> 
               <div class="mb-6">
-                <input id="userNameInpt" type="text" placeholder="Your Name *"
+                <input id="userNameInpt" type="text" placeholder="Your Name *" name="name"
+                  class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none" />
+              </div>
+              <div class="mb-6"> 
+                <input id="userEmailInpt" type="email" placeholder="Your Email *" name="email"
                   class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none" />
               </div>
               <div class="mb-6">
-                <input id="userEmailInpt" type="email" placeholder="Your Email *"
+                <input id="userSubjectInpt" type="text" placeholder="Subject *" name="subject"
                   class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none" />
               </div>
               <div class="mb-6">
-                <input id="userSubjectInpt" type="text" placeholder="Subject *"
-                  class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none" />
-              </div>
-              <div class="mb-6">
-                <textarea id="userMsgInpt" rows="6" placeholder="Your Message *"
+                <textarea id="userMsgInpt" rows="6" placeholder="Your Message *" name="message"
                   class="text-body-color border-[f0f0f0] focus:border-primary w-full resize-none rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"></textarea>
               </div>
               <div>
-                <button type="button" id="submitGetInTouchForm"
+                <button type="submit" id="submitGetInTouchForm" name="submit"
                   class="bg-primary border-primary w-full rounded border p-3 text-gray-900 transition hover:bg-opacity-90">
                   Send Message
                 </button>
                 <p id="errorGetInTouchLabel" class="mt-5 font-bold text-red-600"></p>
               </div>
             </form>
+            <?php 
+              include './php/connection.php';
+              if(isset($_POST['submit'])){
+                  $email = $_POST['email'];
+                  $name = $_POST['name'];
+                  $subject = $_POST['subject'];
+                  $msg = $_POST['message'];
+                  $date = date("Y : m : d");
+                  $sql = "insert into tbl_send_request (name,date,email,subject,message) values ($name,$date,$email,$subject,$msg)";
+                  $result = mysqli_query($conn,$sql);
+                  if($result){
+                    ?> <script>alert("Successfull")</script> <?php
+                  }
+              }
+            ?>
             <div>
               <span class="absolute -top-10 -right-9 z-[-1]">
                 <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -524,7 +540,7 @@
   </footer>
   <!-- footer - end -->
 
-  <script src="./JS/script.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

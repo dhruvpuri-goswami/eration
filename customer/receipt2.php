@@ -16,15 +16,18 @@
     // echo "Order ID: " . $payment->order_id . "<br>"
     $success;
     $rationcard_no = $_SESSION['rationcard_no'];
+    $amount = ($payment->amount)/100;
+    $currentDate = date('Y:m:d');
+$formattedDate = str_replace(':', '-', $currentDate);
 
-    $sql="INSERT INTO tbl_payment values(`$payment->order_id`,`$payment->id`,$payment->amount,`completed`,$rationcard_no)";
-    $sql2="SELECT * FROM tbl_ration WHERE rationcard_no = `$rationcard_no`";
-    $result=mysqli_query($conn,$sql);
-    if($result){
-        $success = true;
-    }else{
-        $success = false;
-    }
+    $sql="INSERT INTO tbl_payment values('$payment->order_id','$payment->id',$amount,'completed',$rationcard_no,$formattedDate)";
+    $result = mysqli_query($conn,$sql);
+
+    $success = true;
+
+    $sql2="SELECT * FROM tbl_ration WHERE rationcard_no = '$rationcard_no'";
+    $result2 = mysqli_query($conn,$sql2);
+    $row = mysqli_fetch_assoc($result2);
 ?>
 <!DOCTYPE html>
 <html>
@@ -64,35 +67,31 @@
         </h2>
         <div class="w3-container w3-margin">
             <br>
-            <p class="w3-large w3-text-dark-blue"><b><?php echo "Dear, ". $u_name;?> <br></b></p>
+            <p class="w3-large w3-text-dark-blue"><b><?php echo "Dear, ". $row['m_name'];?> <br></b></p>
             <h4><b>Date : </b><?php date_default_timezone_set("Asia/Kolkata");    echo date("d-m-y");  ?>
                 <p class="w3-right"><b>Time : </b><?php echo date("h:i:s a");   ?></p>
             </h4>
-            <h4><b>Ration Card No : </b><?php echo $_SESSION['rationcard_no'];  ?>
-                <p class="w3-right"><b>Phone No : </b><?php echo $u_ph;   ?></p>
-            </h4>
-            <h4><b>Receipt ID : </b><?php echo $r_id;  ?>
-                <p class="w3-right"><b>Mode of Payment: </b><?php echo $row['mode'];   ?></p>
+            <h4><b>Ration Card No : </b><?php echo $rationcard_no;  ?>
+                <p class="w3-right"><b>Phone No : </b><?php echo $row['mobile_no'];   ?></p>
             </h4>
             <table class="table w3-margin-top">
                 <thead>
-                    <tr>
+                    <tr class="w3-center">
                         <th>SR No.</th>
                         <th>Date</th>
                         <th>Mode of Payment</th>
                         <th>Amount</th>
-                        <th>Booking ID</th>
-                        <th>Reference ID</th>
+                        <!-- <th>Booking ID</th>
+                        <th>Reference ID</th> -->
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td data-label="SR No."><?php echo $n; ?></td>
-                        <td data-label="Date"><?php echo $row['date']; ?></td>
-                        <td data-label="Mode of Payment"><?php echo $row['mode']; ?></td>
-                        <td data-label="Amount"><?php echo $row['amount']; ?></td>
-                        <td data-label="Booking ID"><?php echo $row['booking_id']; ?></td>
-                        <td data-label="Reference ID"><?php echo $row['tid']; ?></td>
+                        <td data-label="SR No."><?php echo 1; ?></td>
+                        <td data-label="Date"><?php echo $payment->created_at; ?></td>
+                        <td data-label="Mode of Payment"><?php echo $payment->method; ?></td>
+                        <td data-label="Amount"><?php echo $payment->amount/100; ?></td>
+                        
                     </tr>
                 </tbody>
             </table>
@@ -119,6 +118,3 @@
 </body>
 
 </html>
-<?php
-	header("location: /customer.php");
-?>
