@@ -1,24 +1,30 @@
 <?php
+    require './vendor/autoload.php';
+    require_once '../php/connection.php';
+
+    use Razorpay\Api\Api;
+
     session_start();
-    include 'config.php';
-    if(isset($_SESSION['rationcard_no']))
-    {
-        $rcard_no=$_SESSION['rationcard_no'];
-        $r_id=$_REQUEST['r_id'];
-        include 'connection.php';
-        $sql="SELECT * FROM tbl_user WHERE rationcard_no='$rcard_no'";
-        $result=mysqli_query($conn,$sql);
-        $rows=mysqli_fetch_assoc($result);
-        $u_id=$rows['u_id'];
-        $u_name=$rows['fname']." ". $rows['mname']." ". $rows['lname'];
-        $u_ph=$rows['contact_no'];
-        $sql1="SELECT tbl_receipt.*, tbl_book.booking_id, tbl_payment.mode FROM tbl_receipt, tbl_book, tbl_payment 
-        WHERE tbl_book.rationcard_no='$rcard_no' AND tbl_book.booking_id=tbl_payment.booking_id 
-        AND tbl_receipt.receipt_id='$r_id'";
-        $result1=mysqli_query($conn,$sql1);
-        $row=mysqli_fetch_assoc($result1);
-        $n=1;
-        
+    $api = new Api('rzp_test_aRU1rjyM5pOCdU', 'rnQn3k3jgkU7ii2rgIPjdBvX');
+    $razorpayPaymentId = $_POST['razorpay_payment_id'];
+
+    $payment = $api->payment->fetch($razorpayPaymentId);
+
+    // print the payment details
+    // echo "Amount: " . $payment->amount . "<br>";
+    // echo "Status: " . $payment->status . "<br>";
+    // echo "Order ID: " . $payment->order_id . "<br>"
+    $success;
+    $rationcard_no = $_SESSION['rationcard_no'];
+
+    $sql="INSERT INTO tbl_payment values(`$payment->order_id`,`$payment->id`,$payment->amount,`completed`,$rationcard_no)";
+    $sql2="SELECT * FROM tbl_ration WHERE rationcard_no = `$rationcard_no`";
+    $result=mysqli_query($conn,$sql);
+    if($result){
+        $success = true;
+    }else{
+        $success = false;
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,7 +68,7 @@
             <h4><b>Date : </b><?php date_default_timezone_set("Asia/Kolkata");    echo date("d-m-y");  ?>
                 <p class="w3-right"><b>Time : </b><?php echo date("h:i:s a");   ?></p>
             </h4>
-            <h4><b>Ration Card No : </b><?php echo $rcard_no;  ?>
+            <h4><b>Ration Card No : </b><?php echo $_SESSION['rationcard_no'];  ?>
                 <p class="w3-right"><b>Phone No : </b><?php echo $u_ph;   ?></p>
             </h4>
             <h4><b>Receipt ID : </b><?php echo $r_id;  ?>
@@ -114,9 +120,5 @@
 
 </html>
 <?php
-}
-else
-{
-	header("location: ../login/login.php");
-}
+	header("location: /customer.php");
 ?>

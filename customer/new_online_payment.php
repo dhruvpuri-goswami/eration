@@ -193,7 +193,7 @@
         $razorpayPaymentId = ''; // store this value in your database or session
 
         // create a HTML button that will redirect the user to the Razorpay payment page
-        echo '<form class="form-payment" action="./orderdetails.php" method="POST">
+        echo '<form class="form-payment" action="./receipt2.php" method="POST">
         <script src="https://checkout.razorpay.com/v1/checkout.js"
                 data-key="' . 'rzp_test_aRU1rjyM5pOCdU' . '"
                 data-amount="' . $amt . '"
