@@ -87,7 +87,7 @@ if (isset($_POST['btn-login'])) {
                 </div>
                 <div class="workinghny-block-grid">
                     <div class="workinghny-left-img align-end">
-                        <img src="../assets/images/2.png" class="img-responsive" alt="img" />
+                        <img src="login.jpg" class="img-responsive" alt="img" />
                     </div>
                     <div class="form-right-inf">
                         <form action="" class="login-form-content">
@@ -108,7 +108,7 @@ if (isset($_POST['btn-login'])) {
                                     <input type="password" class="w3-input w3-margin-top" name="adminpass"
                                         placeholder="Enter Password" required>
 
-                                    <button type="submit" class="btn btn-style mt-3 w3-theme-d3" name="btn-admin">Sign
+                                    <button type="submit" class="btn btn-style mt-3" style="background-color:#007dfe" name="btn-admin">Sign
                                         In </button>
 
                                 </form>

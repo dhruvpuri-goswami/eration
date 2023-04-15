@@ -39,11 +39,11 @@ include '../php/config.php' ?>
         <div class="workinghny-form-grid">
             <div class="wrapper">
                 <div class="logo">
-                    <h2><a class="brand-logo" style="pointer-events:none;"> Register Here</a></h2><br>
+                    <h2><a class="brand-logo" style="pointer-events:none;"> Register Here</a></h2>
                 </div>
                 <div class="workinghny-block-grid">
                     <div class="workinghny-left-img align-end">
-                        <img src="../assets/images/2.png" class="img-responsive" alt="img" />
+                        <img src="register.jpg" class="img-responsive" alt="img" />
                     </div>
                     <div class="form-right-inf">
                         <div class="login-form-content">
@@ -66,7 +66,7 @@ include '../php/config.php' ?>
                                         placeholder="Enter Password" required> -->
 
 
-                                <button class="btn btn-style mt-10 w3-theme-b3" onclick="registerUser()">Verify
+                                <button class="btn btn-style mt-10" style="background-color: #007dfe" onclick="registerUser()">Verify
                                     Account</button>
                             </div>
                         </div>
