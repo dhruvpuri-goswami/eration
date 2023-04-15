@@ -55,13 +55,78 @@
             $result6=mysqli_query($conn,$sql6);
             $r_info=mysqli_fetch_assoc($result6);
             $r_id=$r_info['receipt_id'];
+
+            // $email_query = "SELECT email_id from tbl_user where rationcard_no='".$rcard_no."'";
+            // $exctEmailQue = mysqli_query($conn, $email_query);
+            // $finalUserEmail = mysqli_fetch_assoc($exctEmailQue)['email_id'];
+            // $email = "nayaksahil992003@gmail.com";
+            // /*ENTER_FROM_EMAIL_ADDRESS*/
+            // $name = "sahil";
+            // /*ENTER_A_NAME*/
+            // $body = " <html> 
+            //             <head> 
+            //                 <title>Welcome to CodexWorld</title> 
+            //             </head> 
+            // <body> Hello <b>" .$rcard_no. "</b>,<br> Thank you for Purchasing item! <br> Here, is your Vefication QR CODE: <br> <img width='300px' src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=".$r_id."_".$rcard_no.">
+            //     </body> 
+            //     </html>";
+
+            // $subject = "Account Verification QR Code";
+
+            // $headers = array(
+            //     'Authorization: Bearer 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',
+            //     /*ENTER_YOUR_API_KEY*/
+            //     'Content-Type: application/json',
+            //     'MIME-Version: 1.0'
+            // );
+
+            // $data = array(
+            //     "personalizations" => array(
+            //         array(
+            //             "to" => array(
+            //                 array(
+
+            //                     "email" => $finalUserEmail,
+            //                     /*ENTER_TO_EMAIL_ADDRESS*/
+            //                     "name"  => $u_name,
+            //                 )
+            //             )
+            //         )
+            //     ),
+            //     "from" => array(
+            //         "email" => $email
+            //     ),
+
+            //     "subject" => $subject,
+            //     "content" => array(
+            //         array(
+            //             "type" => "text/html",
+            //             "value" => $body
+            //         )
+            //     )
+            // );
+
+            // $ch = curl_init();
+            // curl_setopt($ch, CURLOPT_URL, "https://api.sendgrid.com/v3/mail/send");
+            // curl_setopt($ch, CURLOPT_POST, 1);
+            // curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            // curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            // curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+            // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+            // $_SESSION['ration_number'] = $rcard_no;
+            // $response = curl_exec($ch);
+            // curl_close($ch);
+            // echo $response;
+            // echo json_encode(array("status"=>200,"msg"=>"Successfull"));
             //here comes header function which redirects to receipt printing page
-            header("Location:receipt1.php?r_id=$r_id");
+            header("Location:qrcode.php?receipt_id=$r_id&rationcard=$rcard_no");
         }
         else
         {
             echo '<script>alert("Something Went Wrong")</script>';
         }
+
     }
     else
     {
